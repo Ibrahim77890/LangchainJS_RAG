@@ -94,17 +94,18 @@ async function triggerLLMAndFollowup(inputString: string) {
 //In this method we simply provided string of form `Query: ${message}, Top Results: ${JSON.stringify(topResult)}` and then again prompted the generative AI to generate appropriate responses for provided Query in terms of top results
 /*
 This is the json like structure of stream
-{
-  //Contains multiple generated responses for that particular input string
- "choices": [
-    {
-      "delta": {
-      //Contains the timely-completed limited part of that choice not the complete result in itself
-        "content": "The generated text part."
+"stream":
+  {
+    //Contains multiple generated responses for that particular input string
+  "choices": [
+      {
+        "delta": {
+        //Contains the timely-completed limited part of that choice not the complete result in itself
+          "content": "The generated text part."
+        }
       }
-    }
-  ]
-}
+    ]
+  }
 */
 const getGPTResults = async (inputString: string): Promise<void> => {
   let accumulatedContent = "";
